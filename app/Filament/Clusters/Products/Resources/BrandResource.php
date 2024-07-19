@@ -104,7 +104,11 @@ class BrandResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
-            ->groupedBulkActions([
+            ->headerActions([
+                Tables\Actions\ExportAction::make()->exporter(\App\Filament\Exports\Shop\BrandExporter::class),
+            ])
+            ->bulkActions([
+                Tables\Actions\ExportBulkAction::make()->exporter(\App\Filament\Exports\Shop\BrandExporter::class),
                 Tables\Actions\DeleteBulkAction::make()
                     ->action(function () {
                         Notification::make()

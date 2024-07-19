@@ -3,7 +3,6 @@
 namespace App\Filament\Clusters\Products\Resources\BrandResource\Pages;
 
 use App\Filament\Clusters\Products\Resources\BrandResource;
-use App\Filament\Exports\Shop\BrandExporter;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
@@ -15,7 +14,7 @@ class ListBrands extends ListRecords
     {
         return [
             Actions\ExportAction::make()
-                ->exporter(BrandExporter::class),
+                ->exporter(\App\Filament\Exports\Shop\BrandExporter::class),
             Actions\CreateAction::make(),
         ];
     }

@@ -107,7 +107,10 @@ class CategoryResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
-            ->groupedBulkActions([
+            ->headerActions([
+                Tables\Actions\ImportAction::make()->importer(\App\Filament\Imports\Shop\CategoryImporter::class),
+            ])
+            ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make()
                     ->action(function () {
                         Notification::make()
