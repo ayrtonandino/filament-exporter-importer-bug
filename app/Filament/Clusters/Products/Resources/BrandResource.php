@@ -26,6 +26,8 @@ class BrandResource extends Resource
 
     protected static ?int $navigationSort = 2;
 
+    protected static ?string $modelLabel = 'marca';
+
     public static function form(Form $form): Form
     {
         return $form
